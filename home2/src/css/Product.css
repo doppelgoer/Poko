@@ -1,0 +1,36 @@
+.Pbox {
+  background: #dcdcdc;
+  width: 30vw;
+  height: 40vh;
+  /* 투명도 */
+  /* opacity: 0.5; */
+  margin: 0px 20px 0px 0px;
+}
+/* .productArea {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 20%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+} */
+.cardArea {
+  display: flex;
+  width: 1000px;
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 20%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.title {
+  height: 4vh;
+  background: #787878;
+  text-align: center;
+  /* 세로가운데정렬 */
+  line-height: 3vh;
+  font-weight: bolder;
+}

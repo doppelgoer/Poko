@@ -28,7 +28,6 @@
   margin: 0;
   background-position: center;
   background-size: cover;
-  /* background-image: url('https://media.giphy.com/media/LVCdHNPTIY2be/giphy.gif'); */
-  background-image: url(https://media.giphy.com/media/3o6wrFbvaNWm7z4kRG/giphy.gif);
+  background-image: url("https://media.giphy.com/media/LVCdHNPTIY2be/giphy.gif");
   font-family: "Black Han Sans", sans-serif;
 }
