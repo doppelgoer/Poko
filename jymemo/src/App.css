@@ -1,0 +1,32 @@
+.App {
+  text-align:center;
+  background-color: burlywood;
+  margin: 5px;
+  font-style: italic;
+  font-size: 30px;
+  padding: 5px;
+  border-radius: 9px;
+}
+
+.body {
+  text-align:center;
+  font-style: italic;
+  margin: 5px;
+  border-radius: 9px;
+  padding: 5px;
+  background-color:aquamarine;
+}
+
+.memo {
+  text-align:center;
+  display:center;
+  margin: 5px;
+  font-style: italic;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 9px;
+  background-color:coral;
+}
+
+
+

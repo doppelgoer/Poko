@@ -1,0 +1,94 @@
+.todo-list-template {
+    background: rgb(0, 0, 0);
+    width: 512px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); /* 그림자 */ 
+    margin: 0 auto; /* 페이지 중앙 정렬 */
+    margin-top: 4rem;
+  }
+  
+  .title {
+    
+    padding: 3rem;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 100;
+    background: black;
+    color: white;
+    border-bottom: 1px solid white;
+  }
+  .title-menu.BiListUl {
+    float: left;
+  }
+  
+  .title-menu.BiEditAlt{
+    height: 50px;
+    float: right;
+  }
+  .title-menu.BiSearchAlt{
+    height: 50px;
+    float: right;
+  }
+  .form-wrapper {
+    padding: 1rem;
+    border-bottom: 1px solid white;
+    background: black;  
+  }
+  
+  .todos-wrapper {
+    min-height: 30rem;
+    background: black;
+  }
+
+  .todoList {
+    line-height: 37px;
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+    height: 80px;
+    background: rgb(71, 70, 70);
+    border-radius: 20px ;
+    /* border: 1px solid white;  */
+    color: white;
+    font-style: italic;
+  }
+  .todoListTxt{
+    margin-left: 12px;
+  }
+  .todoListTitle {
+    margin-left: 12px;
+    font-size: 20px;
+  }
+
+.title-menu.BiLeftArrowAlt {
+  float: right;
+}
+.title-menu.BiSave{
+  float: right;
+}
+
+ 
+
+  .memoLink{
+    color: white;
+  }
+
+.inputTitle{
+  width: -webkit-fill-available;
+  height: 50px;
+  font-size: 30px;
+}
+
+  .textareaMemo {
+    width: -webkit-fill-available;
+    height: 500px;
+    font-size: 20px;
+    /* background: black; */
+    color: black;
+    background-attachment: local;
+    background-image:
+      linear-gradient(to right, white 10px, transparent 10px),
+      linear-gradient(to left, white 10px, transparent 10px),
+      repeating-linear-gradient(white, white 30px, #ccc 30px, #ccc 31px, white 31px);
+    line-height: 31px;
+    padding: 8px 10px;
+  }

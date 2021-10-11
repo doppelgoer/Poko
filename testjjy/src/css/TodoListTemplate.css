@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gugi&family=Nanum+Myeongjo&display=swap');
+
+/* 
+- 나눔 명조체
+font-family: 'Nanum Myeongjo', serif;
+
+- Gugi
+font-family: 'Gugi', cursive;
+*/
+
+.todo-list-template {
+    background-color: #efefef;
+    background-image: url("https://www.transparenttextures.com/patterns/billie-holiday.png");    width: 512px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); /* 그림자 */ 
+    margin: 0 auto; /* 페이지 중앙 정렬 */
+    margin-top: 4rem;
+    height:600px;
+  }
+  
+  .title {
+    padding: 3rem;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 100;
+    color: white;
+  }
+  .title-menu.IoArrowBack {
+    float: left;
+  }
+  
+  .title-menu.FiHome {
+    float: left;
+    height: 40px;
+  }
+  
+  .title-menu.BiEditAlt{
+    height: 50px;
+    float: right;
+  }
+  .title-menu.BiSearchAlt{
+    height: 50px;
+    float: right;
+  }
+  .form-wrapper {
+    padding: 1rem;
+    border-bottom: 1px solid white;
+  }
+  
+  .todoList {
+    line-height: 37px;
+    width: 80%;
+    margin: auto;
+    margin-top: 13px;
+    min-height: 70px;
+    color: white;
+    font-style: italic;
+    border-radius: 0px;
+    background: #dedede;
+    box-shadow:  5px 5px 3px #a0a0a0,
+                -2px -2px 5px #ffffff;
+  }
+  .todoListTitle {
+    margin-left: 12px;
+    font-size: 20px;
+    color:darkgray;
+  }
+
+  .todoListTxt{
+    float:left;
+    margin-left: 12px;
+    font-size:16px;
+    color: white;
+  }
+  
+
+  .todoListDel{
+    margin-left: 90%;
+  }
+
+  .GiTrashCan {
+    width: 100%;
+    font-size: 30px;
+    color:white;
+  }
+  .GiTrashCan:hover {
+    color:#7a7672;
+  }
+
+.title-menu.BiLeftArrowAlt {
+  float: right;
+}
+.title-menu.BiSave{
+  float: right;
+}
+
+.memoLink{
+  color: white;
+}
+.memoLink:hover {
+  color:#7a7672;
+}
+.todos-wrapper, .insertTodo-wrapper {
+  min-height: 30rem;
+}
+.insertTodo-wrapper {
+  padding-top:15px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.TitleOfInsert {
+  font-size: 20px;
+  font-family: 'Nanum Myeongjo', serif;
+}
+
+.inputTitle, .textareaMemo{
+  width: 100%;
+  height: 50px;
+  font-size: 22px;
+  margin-left:auto;
+  margin-right:auto;
+  border: none;
+  margin-top: 10px;
+  margin-bottom:15px;
+  border-radius: 0px;
+  padding-left:10px;
+  background: #dedede;
+  box-shadow:  5px 5px 3px #a0a0a0,
+              -2px -2px 5px #ffffff;
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 17px;
+
+}
+.textareaMemo {
+ height: 300px;
+ resize:none;
+ /* padding-top:16px; */
+ background-color: #dedede;
+ background-size: 32px 32px;
+ background-image:  repeating-linear-gradient(0deg, #fbf5f5, #fbf5f5 1.4000000000000001px, #dedede 1.4000000000000001px, #dedede);
+ line-height: 32px;
+}
+
+.inputTitle:focus, .textareaMemo:focus {
+ outline:none;
+}
