@@ -1,0 +1,16 @@
+.body {
+  /* background-color: chartreuse; */
+  padding-top:100px;
+}
+
+.team {
+  padding-top : 100px;
+}
+.memberImgArea {
+  width:900px;
+  /* background-color: yellow; */
+}
+
+.memberImgArea img {
+  width: 100%;
+}
