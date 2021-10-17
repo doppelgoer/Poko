@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
-* {
+/* * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
-}
+} */
 
 .home,
 .team,
@@ -13,8 +13,8 @@
 .contact {
   display: flex;
   height: 98vh;
-  align-items: center;
-  justify-content: center;
+  align-items:center;
+  justify-content: center; 
   font-size: 3rem;
 }
 
@@ -23,9 +23,9 @@
   width: 100%;
   min-height: 100%;
   height: 1000px;
-  border: 0;
+  /* border: 0;
   padding: 0;
-  margin: 0;
+  margin: 0; */
   background-position: center;
   background-size: cover;
   background-image: url('https://media.giphy.com/media/LVCdHNPTIY2be/giphy.gif');

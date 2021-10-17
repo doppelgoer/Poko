@@ -11,11 +11,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api', api);
 let mysql = require('mysql');
+const router = require('./routes/index');
 let connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '112213',
-  database: 'mine', // 데이터베이스 고르기
+  password: '1234',
+  database: 'poko', // 데이터베이스 고르기
+  port: '3307',
 });
 
 connection.connect();
@@ -58,3 +60,9 @@ query = function (q) {
     });
   });
 };
+
+// Contact US page
+app.get('/contactUs', async function (req, res) {
+  console.log(3213213);
+
+});
