@@ -1,11 +1,12 @@
-import './css/App.css';
-import Main from './components/mainPage/Main';
-import Board from './components/boardPage/BoardPage';
-import Header from './components/header/Header';
-import Products from './components/productsPage/ProductsPage';
-import Pro from './components/productsPage/Product';
+import "./css/App.css";
+import Main from "./components/mainPage/Main";
+import Board from "./components/boardPage/BoardPage";
+import Header from "./components/header/Header";
+import Products from "./components/productsPage/ProductsPage";
+import Pro from "./components/productsPage/Product";
+import Team from "./components/teamPage/TeamPage";
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
             <Route path="/Board" component={Board}></Route>
             {/* <Route path="/products" component={Products}></Route> */}
             <Route path="/products" component={Pro}></Route>
-            <Route path="/Contact"></Route>
+            <Route path="/Contact" component={Team}></Route>
           </Switch>
         </Router>
       </div>
