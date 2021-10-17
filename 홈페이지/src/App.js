@@ -15,7 +15,7 @@ function App() {
           <Header />
           <Switch>
             <Route path="/" exact component={Main}></Route>
-            <Route path="/Team" component={Board}></Route>
+            <Route path="/Board" component={Board}></Route>
             {/* <Route path="/products" component={Products}></Route> */}
             <Route path="/products" component={Pro}></Route>
             <Route path="/Contact"></Route>

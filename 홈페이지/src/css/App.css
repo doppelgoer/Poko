@@ -20,14 +20,19 @@
 
 /* size 임의지정 */
 .background {
-  width: 100%;
+  background-color: rgb(27 27 28);
+  width: 100vw;
+  height: 100vh;
   min-height: 100%;
-  height: 1000px;
+  /* height: 1000px; */
   border: 0;
   padding: 0;
   margin: 0;
   background-position: center;
   background-size: cover;
-  background-image: url('https://media.giphy.com/media/LVCdHNPTIY2be/giphy.gif');
+  /* background-image: url('https://media.giphy.com/media/LVCdHNPTIY2be/giphy.gif'); */
   font-family: 'Black Han Sans', sans-serif;
+  /* 아래 스크롤 안생기게 하기 */
+  overflow-x: hidden;
+  overflow-y: auto;
 }
