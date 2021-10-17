@@ -1,20 +1,45 @@
+
 .body {
   /* background-color: chartreuse; */
-  padding-top: 100px;
+  padding-top:50px;
 }
 
-.team {
-  padding-top: 100px;
-  color: white;
-}
+.teamBox {
+  padding-top : 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+};
+
 .memberImgArea {
-  width: 900px;
+  width:500px;
+  
   /* background-color: yellow; */
 }
 
 .memberImgArea img {
   width: 100%;
 }
-/* .memeberTitle {
-  color: white;
-} */
+
+.contactBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 100vw;
+  height: 30vh;
+};
+
+.infoBox {
+  width: 100vw;
+  height: 50vh;
+}
+
+.userName {
+  margin-bottom: 10px;
+}
+
+.emailBox {
+  margin-left: 20px;
+};

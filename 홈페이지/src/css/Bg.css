@@ -22,3 +22,10 @@
   left: 0; */
   /* width: 100%; */
 }
+
+.login {
+  margin-left: 2rem;
+  font-size: 2rem;
+  background: none;
+  border-right: aqua;
+}
