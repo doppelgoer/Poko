@@ -62,7 +62,8 @@ query = function (q) {
 };
 
 // Contact US page
-app.get('/contactUs', async function (req, res) {
-  console.log(3213213);
+app.post('/contactUs', async function (req, res) {
+  console.log(1234);
+  console.log(3213213, req.body);
 
 });

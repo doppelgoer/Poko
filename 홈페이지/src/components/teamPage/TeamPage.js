@@ -1,23 +1,76 @@
 import memberImg from '../../img/member.png';
 import '../../css/body.css';
-import axiosFun from '../../modules/axios';
+import axios from 'axios';
 import { useState, useEffect } from "react";
+const headAddress = `http://localhost`;
 
 function Team() {
 
-    const [textbox, setTextBox] = useState();
+    const [textbox, setTextBox] = useState([]);
+    const [userName, setUserName] = useState('');
+    const [userEmail, setUserEmail] = useState('');
+    const [userPhoneNum, setUserPhoneNum] = useState('');
+    const [inputContent, setInputContent] = useState('');
 
-    async function getContactUsFun() {
-        console.log(5435435);
-        let test = await axiosFun("GET", `contactUs`, {});
-        <div>
-            <textarea>쓰시오</textarea>
-        </div>
+
+    // nodemailer에 데이터 보낼때
+    async function postUserInfo() {
+
+        let addData = await axios({
+            method: "post",
+            url: `${headAddress}/contactUs`,
+            data: {             // data 는 post,   params은 get방식
+                name: userName,
+                email: userEmail,
+                phoneNum: userPhoneNum,
+                content: inputContent
+            },
+        });
     }
 
-    useEffect(() => {
-        getContactUsFun();
-    }, []);
+    // async function postContactUsFun() {
+    //     console.log(5435435);
+    //     let test = await axiosFun("POST", `contactUs`, {});
+    //     setTextBox([...textbox, ...test]);
+
+    // }
+    // useEffect(() => {
+    //     insertInfo();
+    // }, []);
+
+
+    const onClick = (event) => {
+
+        event.preventDefault();
+        setTextBox({
+            name: userName,
+            email: userEmail,
+            phoneNum: userPhoneNum,
+            content: inputContent
+        });
+        postUserInfo();
+    };
+    console.log('text', textbox);
+
+    const setUserNameFun = (e) => {
+        setUserName(e.target.value);
+    };
+
+    const setUserEmailFun = (e) => {
+        setUserEmail(e.target.value);
+    };
+
+    const setUserPhoneNumFun = (e) => {
+        setUserPhoneNum(e.target.value);
+    };
+
+    const setInputContentFun = (e) => {
+        setInputContent(e.target.value);
+    };
+
+
+
+
 
     return (
         <div className="teamBox">
@@ -36,14 +89,26 @@ function Team() {
                     <div className="userName">
                         <input
                             type="text"
-                            placeholder="name">
+                            placeholder="name"
+                            value={userName}
+                            onChange={setUserNameFun}>
                         </input>
                     </div>
 
+                    <div className="userEmail">
+                        <input
+                            type="text"
+                            placeholder="email"
+                            value={userEmail}
+                            onChange={setUserEmailFun}>
+                        </input>
+                    </div>
                     <div>
                         <input
                             type="text"
-                            placeholder="email">
+                            placeholder="telephone"
+                            value={userPhoneNum}
+                            onChange={setUserPhoneNumFun}>
                         </input>
                     </div>
                 </div>
@@ -53,14 +118,16 @@ function Team() {
                         name="opinion"
                         cols="30"
                         rows="5"
-                        placeholder="내용">
+                        placeholder="내용"
+                        value={inputContent}
+                        onChange={setInputContentFun}>
                     </textarea>
                 </div>
 
             </div>
             <div>
-                <button>
-                    보내기
+                <button onClick={onClick}>
+                    Submit
                 </button>
             </div>
         </div >
