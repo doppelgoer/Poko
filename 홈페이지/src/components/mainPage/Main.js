@@ -1,5 +1,3 @@
-// import Body from '../Body';
-import bgAvi from '../../css/fire.mp4';
 import '../../css/Bg.css';
 import MainFirst from './MainFirst';
 function Main() {
