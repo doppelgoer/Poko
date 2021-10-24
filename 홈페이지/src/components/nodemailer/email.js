@@ -1,8 +1,10 @@
-const nodemailer = require("nodemailer");
+let express = require('express');
+let app = express();
+let nodemailer = require("nodemailer");
 
 // 본인 Gmail 계정
-const EMAIL = "your_gmail_account@gmail.com";
-const EMAIL_PW = "your_gmail_password";
+const EMAIL = "id@gmail.com";
+const EMAIL_PW = "pwd";
 
 // 이메일 수신자
 let receiverEmail = "receiver's email";
