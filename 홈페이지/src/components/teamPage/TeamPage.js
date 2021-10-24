@@ -11,7 +11,7 @@ function Team() {
     const [userEmail, setUserEmail] = useState('');
     const [userPhoneNum, setUserPhoneNum] = useState('');
     const [inputContent, setInputContent] = useState('');
-
+    const [subjectContent, setSubjectContent] = useState('');
 
     // nodemailer에 데이터 보낼때
     async function postUserInfo() {
@@ -22,6 +22,7 @@ function Team() {
             data: {             // data 는 post,   params은 get방식
                 name: userName,
                 email: userEmail,
+                subject: subjectContent,
                 phoneNum: userPhoneNum,
                 content: inputContent
             },
@@ -45,6 +46,7 @@ function Team() {
         setTextBox({
             name: userName,
             email: userEmail,
+            subject: subjectContent,
             phoneNum: userPhoneNum,
             content: inputContent
         });
@@ -58,6 +60,10 @@ function Team() {
 
     const setUserEmailFun = (e) => {
         setUserEmail(e.target.value);
+    };
+
+    const setSubjectContentFun = (e) => {
+        setSubjectContent(e.target.value);
     };
 
     const setUserPhoneNumFun = (e) => {
@@ -103,7 +109,17 @@ function Team() {
                             onChange={setUserEmailFun}>
                         </input>
                     </div>
-                    <div>
+
+                    <div className="userSubject">
+                        <input
+                            type="text"
+                            placeholder="subject"
+                            value={subjectContent}
+                            onChange={setSubjectContentFun}>
+                        </input>
+                    </div>
+
+                    <div className="userPhoneNum">
                         <input
                             type="text"
                             placeholder="telephone"
@@ -129,6 +145,16 @@ function Team() {
                 <button onClick={onClick}>
                     Submit
                 </button>
+            </div>
+
+            <div style={{height:'30vh', width:'30vh', background:'violet', display:'flex', alignItems:'center', justifyContent:'center'}}>
+                <div style={{display:'flex', alignItems:'center', justifyContent:'center', flexDirection: 'column', margin:'0px 20px 20px 10px'}}>
+
+                
+                    <div style={{height:'5vh', width:'5vh', border:'1px solid black',background:'violet'}}>1</div>
+                    <div style={{height:'5vh', width:'5vh', border:'1px solid black',background:'violet'}}>2</div>
+                </div>
+                <div style={{height:'5vh', width:'5vh', border:'1px solid black',background:'violet', margin:'10px 20px 20px 10px'}}>3</div>
             </div>
         </div >
     )
