@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-const headAddress = 'http://localhost:3001';
+const headAddress = 'http://localhost:3000';
 
 
 function MemoForm({ setMemo, memos }) {
