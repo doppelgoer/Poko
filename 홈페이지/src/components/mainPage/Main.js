@@ -1,5 +1,6 @@
 import '../../css/Bg.css';
 import MainFirst from './MainFirst';
+import MainSecond from './MainSecond';
 function Main() {
   // const img = 'https://youtu.be/3zjt3pq8SdY';
   return (
@@ -7,13 +8,7 @@ function Main() {
     // <div className="vimeoWrap">
     <div>
       <MainFirst></MainFirst>
-      <div
-        style={{
-          backgroundColor: 'rgb(27 27 28)',
-          width: '99vw',
-          height: '100vh',
-        }}
-      ></div>
+      <MainSecond></MainSecond>
       {/* <video className="bgAvi" src={bgAvi} type="video/mp4" muted autoPlay /> */}
       {/* <video controls src={img} type="video/mp4" muted autoPlay loop></video> */}
       {/* <source src="bgAvi" type="video/mp4" /> */}

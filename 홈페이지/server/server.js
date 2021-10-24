@@ -34,7 +34,6 @@ app.get('/', function (req, res) {
 });
 
 app.get('/text', async function (req, res) {
-  console.log(3213213, req.query);
   let selectTestSql = `SELECT * FROM test`;
   let selectTestRes = await query(selectTestSql);
   console.log(selectTestRes);
@@ -91,12 +90,12 @@ app.post('/contactUs', async function (req, res) {
   });
 
 
-  let emailHtml =`<div>
+  let emailHtml =`
   이메일 : ${user_email},
   이름 : ${user_name},
   휴대폰 : ${user_phoneNum},
   내용 : ${user_input_content}
-  </div>`
+  `
 // 메일 전송하기
     let info = await transporter.sendMail({
       // 보내는 곳의 이름과, 메일 주소를 입력
@@ -107,7 +106,7 @@ app.post('/contactUs', async function (req, res) {
       // 보내는 메일의 제목을 입력
       // text: 일반 text로 작성된 내용
       // html: html로 작성된 내용
-      text:emailHtml
+      text: `${emailHtml}`
       
       
     });
