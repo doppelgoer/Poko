@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import BoardBanner from './BoardBanner';
 import BoardList from './BoardList';
 import BordContent from './BoardContent';

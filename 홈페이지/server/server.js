@@ -15,9 +15,9 @@ const router = require('./routes/index');
 let connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '1234',
-  database: 'poko', // 데이터베이스 고르기
-  port: '3307',
+  password: '112213',
+  database: 'mine', // 데이터베이스 고르기
+  port: '3306',
 });
 
 connection.connect();
@@ -64,5 +64,4 @@ query = function (q) {
 // Contact US page
 app.get('/contactUs', async function (req, res) {
   console.log(3213213);
-
 });
