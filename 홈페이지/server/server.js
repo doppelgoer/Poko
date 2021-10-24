@@ -15,7 +15,7 @@ const router = require('./routes/index');
 let connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '112213',
+  password: '1234',
   database: 'mine', // 데이터베이스 고르기
   port: '3306',
 });
@@ -32,7 +32,6 @@ app.get('/', function (req, res) {
 });
 
 app.get('/text', async function (req, res) {
-  console.log(3213213, req.query);
   let selectTestSql = `SELECT * FROM test`;
   let selectTestRes = await query(selectTestSql);
   console.log(selectTestRes);
@@ -62,6 +61,14 @@ query = function (q) {
 };
 
 // Contact US page
+<<<<<<< HEAD
 app.get('/contactUs', async function (req, res) {
   console.log(3213213);
 });
+=======
+app.post('/contactUs', async function (req, res) {
+  console.log(1234);
+  console.log(3213213, req.body);
+
+});
+>>>>>>> 1f68954e166618a047737a4c8a27f7a34a4e42a1
