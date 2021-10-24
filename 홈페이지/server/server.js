@@ -26,6 +26,23 @@ const port = process.env.PORT || 80;
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
+///Kakao LOgin
+const REST_API_KEY = "ba0d65bf6ac39628accf57f92180fd3a";
+const REDIRECT_URI = "http://localhost/oauth";
+const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+
+app.get("/kakaoAxios", async function (req, res) {
+  console.log(222222);
+  console.log(KAKAO_AUTH_URL);
+  res.redirect(KAKAO_AUTH_URL);
+});
+
+app.get("/oauth", function (req, res) {
+  console.log(req.query.code);
+  // 다시 axios 날리기
+  //카카오 로그인 숙제
+});
+
 app.use(express.static(path.join(__dirname, "../build")));
 app.get("/", function (req, res) {
   res.send(express.static(path.join(__dirname, "../build/index.html")));
