@@ -135,5 +135,20 @@ function Team() {
 };
 
 
+        <div className="emailBox">
+          <textarea
+            name="opinion"
+            cols="30"
+            rows="5"
+            placeholder="내용"
+          ></textarea>
+        </div>
+      </div>
+      <div>
+        <button>보내기</button>
+      </div>
+    </div>
+  );
+}
 
 export default Team;

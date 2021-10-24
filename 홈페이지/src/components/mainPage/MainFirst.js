@@ -1,16 +1,16 @@
 import '../../css/main.css';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 export default function MainFirst() {
-  const [position, setPosition] = useState(0);
-  function onScroll() {
-    setPosition(window.scrollY);
-  }
-  useEffect(() => {
-    window.addEventListener('scroll', onScroll);
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-    };
-  }, []);
+  // const [position, setPosition] = useState(0);
+  // function onScroll() {
+  //   setPosition(window.scrollY);
+  // }
+  // useEffect(() => {
+  //   window.addEventListener('scroll', onScroll);
+  //   return () => {
+  //     window.removeEventListener('scroll', onScroll);
+  //   };
+  // }, []);
   return (
     // <Parallax speed={30}>
     <div className="mainFirst">

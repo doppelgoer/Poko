@@ -8,7 +8,7 @@ function Header(props) {
       <div className="headerLogo">
         <Navbar />
         <div className="logoArea">
-          <img src={logoImg} />
+          <img src={logoImg} alt="logo" />
         </div>
       </div>
     </div>

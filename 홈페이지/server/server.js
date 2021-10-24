@@ -13,11 +13,19 @@ app.use("/api", api);
 let mysql = require("mysql");
 const router = require("./routes/index");
 let connection = mysql.createConnection({
+<<<<<<< HEAD
   host: "localhost",
   user: "root",
   password: "1234",
   database: "poko", // 데이터베이스 고르기
   port: "3306",
+=======
+  host: 'localhost',
+  user: 'root',
+  password: '1234',
+  database: 'mine', // 데이터베이스 고르기
+  port: '3306',
+>>>>>>> 431ded9e831a90963e87110b50b70bdd3707da89
 });
 
 connection.connect();
@@ -31,8 +39,7 @@ app.get("/", function (req, res) {
   res.send(express.static(path.join(__dirname, "../build/index.html")));
 });
 
-app.get("/text", async function (req, res) {
-  console.log(3213213, req.query);
+app.get('/text', async function (req, res) {
   let selectTestSql = `SELECT * FROM test`;
   let selectTestRes = await query(selectTestSql);
   console.log(selectTestRes);
@@ -62,7 +69,21 @@ query = function (q) {
 };
 
 // Contact US page
+<<<<<<< HEAD
 app.post("/contactUs", async function (req, res) {
   console.log(1234);
   console.log(3213213, req.body);
 });
+=======
+<<<<<<< HEAD
+app.get('/contactUs', async function (req, res) {
+  console.log(3213213);
+});
+=======
+app.post('/contactUs', async function (req, res) {
+  console.log(1234);
+  console.log(3213213, req.body);
+
+});
+>>>>>>> 1f68954e166618a047737a4c8a27f7a34a4e42a1
+>>>>>>> 431ded9e831a90963e87110b50b70bdd3707da89

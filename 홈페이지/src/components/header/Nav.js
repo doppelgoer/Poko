@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
@@ -17,7 +17,7 @@ function Navbar() {
   const [hoverProductsTF, setHoverProductsTF] = useState(1);
   const [hoverContactTF, setHoverContactTF] = useState(1);
   const [navTextBack, setNavTextBack] = useState({ display: 'none' });
-  const [navTextBackPart, setNavTextBackPart] = useState({ display: 'none' });
+  // const [navTextBackPart, setNavTextBackPart] = useState({ display: 'none' });
   const [navTextHomePart, setNavTextHomePart] = useState({ display: 'none' });
   const [navTextProductsPart, setNavTextProductsPart] = useState({
     display: 'none',
@@ -128,15 +128,15 @@ function Navbar() {
       overflowX: 'hidden',
       overflowY: 'hidden',
     });
-    setNavTextBackPart({
-      display: 'flex',
-      width: '100vw',
-      height: '100vh',
-      alignItems: 'center',
-      justifyContent: 'center',
-      fontSize: '40vh',
-      position: 'absolute',
-    });
+    // setNavTextBackPart({
+    //   display: 'flex',
+    //   width: '100vw',
+    //   height: '100vh',
+    //   alignItems: 'center',
+    //   justifyContent: 'center',
+    //   fontSize: '40vh',
+    //   position: 'absolute',
+    // });
     if (item === 'home') {
       setNavTextHomePart(navTextBackStyle);
       setHoverHomeTF(2);
@@ -165,7 +165,7 @@ function Navbar() {
   }
   function hoverTrueFun(item) {
     setNavTextBack({ display: 'none' });
-    setNavTextBackPart({ display: 'none' });
+    // setNavTextBackPart({ display: 'none' });
     if (item === 'home') {
       setNavTextHomePart({ display: 'none' });
       setHoverHomeTF(1);
@@ -206,9 +206,7 @@ function Navbar() {
             return (
               <div
                 key={index}
-                className={
-                  item.cName + '-' + 'back' + '-' + item.lowerTxt.toLowerCase()
-                }
+                className={item.cName + '-back-' + item.lowerTxt.toLowerCase()}
                 style={item.backTxtStyle}
               >
                 {item.title}

@@ -241,3 +241,222 @@ body {
     transform: translateX(0vw);
   }
 }
+
+.mainSecond {
+  background-color: rgb(27 27 28);
+  width: 99vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainSecBoard {
+  background-color: #c475ee;
+  width: 33vw;
+  height: 100vh;
+}
+
+.productAndContactContainer {
+  width: 66vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.mainSecContactUs {
+  width: 66vw;
+  height: 34vh;
+  background-color: azure;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* flex-direction: column; */
+}
+
+.mainSecContactUsTop {
+  background-color: sandybrown;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: 34vh;
+  width: 19vw;
+  padding: 0.3rem 0.4rem 1rem 0.4rem;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.mainSecCards {
+  /* background-color: grey; */
+  height: 34vh;
+  width: 70vw;
+  min-height: 34vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e0f7fa;
+}
+
+.contactUsCards {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 40px 0;
+}
+
+.contactUsCard {
+  position: relative;
+  width: 12vw;
+  height: 32vh;
+  margin: 0.4rem;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 0.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contactUsCardContent {
+  bottom: -32vh;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 10;
+  flex-direction: column;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: bottom 0.5s;
+}
+
+.contactUsCards .contactUsCard:hover .contactUsCardContent {
+  /* bottom: -20vh; */
+}
+.contactUsCardImg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* .contactUsCardContentBx {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+} */
+
+.contactUsCardContentBx h3 {
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+  line-height: 1.1em;
+  transition: 0.5s;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition-delay: 0.2s;
+}
+
+.contactUsCards .contactUsCard:hover .contactUsCardContent {
+  bottom: -20vh;
+}
+
+.contactUsCards
+  .contactUsCard:hover
+  .contactUsCardContent
+  .contactUsCardContentBx
+  h3 {
+  opacity: 1;
+  transform: translateY(1vh);
+}
+
+.contactUsCards
+  .contactUsCard:hover
+  .contactUsCardContent
+  .contactUsCardContentBx
+  h3
+  span {
+  font-size: 12px;
+  font-weight: 300;
+  text-transform: initial;
+}
+
+.contactUsCardSci {
+  position: relative;
+  /* bottom: 10px; */
+  display: flex;
+  align-items: center;
+}
+
+.contactUsCards .contactUsCard .contactUsCardSci li {
+  list-style: none;
+  /* margin: 0 10px; */
+  transform: translateY(-10px);
+  transition: 0.5s;
+  opacity: 0;
+  color: #fff;
+  transition-delay: calc(0.4s * var(--i));
+}
+
+.contactUsCards .contactUsCard:hover .contactUsCardSci li {
+  transform: translateY(10px);
+  opacity: 1;
+}
+
+.swiper {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  /* background-color: whitesmoke; */
+  width: 10px;
+}
+
+.swiper-slide {
+  border: 1px solid rgb(69, 69, 69);
+  border-radius: 10px;
+}
+.mainSecProducts {
+  width: 66vw;
+  height: 66vh;
+  background-color: rgb(27 27 28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.mainProductTxt h1 {
+  color: rgb(174, 173, 173);
+  /* font-weight: 800; */
+}
+.mainProductsSwiperSlideRapper {
+  height: 50vh;
+  width: 66vw;
+  background-color: rgb(27, 26, 26);
+  color: whitesmoke;
+}
+
+.mainProductSlide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+/*
+.mainProductSwiper {
+  background-color: white;
+  border-radius: 1rem solid rgba(170, 50, 220, 0.6);
+} */
+
+/* .swiper-pagination swiper-pagination-bullets {
+  display: none;
+} */
