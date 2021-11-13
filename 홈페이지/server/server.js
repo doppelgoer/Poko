@@ -20,8 +20,8 @@ const router = require('./routes/index');
 let connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '112213',
-  database: 'mine', // 데이터베이스 고르기
+  password: '1234',
+  database: 'poko', // 데이터베이스 고르기
   port: '3306',
 });
 
@@ -31,9 +31,25 @@ const port = process.env.PORT || 80;
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
+///Kakao LOgin
+const REST_API_KEY = 'ba0d65bf6ac39628accf57f92180fd3a';
+const REDIRECT_URI = 'http://localhost/oauth';
+const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+
+app.get('/kakaoAxios', async function (req, res) {
+  console.log(222222);
+  console.log(KAKAO_AUTH_URL);
+  res.redirect(KAKAO_AUTH_URL);
+});
+
+app.get('/oauth', function (req, res) {
+  console.log(req.query.code);
+  // 다시 axios 날리기
+  //카카오 로그인 숙제
+});
+
 app.use(express.static(path.join(__dirname, '../build')));
 app.get('/', function (req, res) {
-  console.log(123);
   res.send(express.static(path.join(__dirname, '../build/index.html')));
 });
 
@@ -47,13 +63,13 @@ app.get('/getBoardContents', async function (req, res) {
   //   console.log(123123);
   //   console.log(req.query);
   let getBoardContentsSql = `SELECT idx,title FROM board_content`;
-  let getBoardContentsRes = await query(getBoardContentsSql);
+  let getBoardContentsRes = await query1(getBoardContentsSql);
   //   console.log(getBoardContentsRes);
   //   console.log(getBoardContentsRes);
   res.send(getBoardContentsRes);
 });
 
-query = function (q) {
+query1 = function (q) {
   return new Promise((resolve, reject) => {
     connection.query(q, function (err, rows, fields) {
       if (err) {

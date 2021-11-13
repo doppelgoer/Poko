@@ -19,6 +19,7 @@ function App() {
             {/* <Route path="/products" component={Products}></Route> */}
             <Route path="/products" component={Pro}></Route>
             <Route path="/Contact" component={Team}></Route>
+            {/* <Route path="/oauth" component={Login}></Route> */}
           </Switch>
         </Router>
       </div>
