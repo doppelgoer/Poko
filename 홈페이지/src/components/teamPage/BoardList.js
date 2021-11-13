@@ -56,7 +56,7 @@ export default function BoardList() {
           padding: '1vh',
           border: '10px solid black',
           borderRadius: '1.5rem',
-          overflow: 'hidden',
+          overflow: 'auto',
         }}
       >
         {contentList}

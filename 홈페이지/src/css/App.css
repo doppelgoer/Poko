@@ -13,8 +13,8 @@
 .contact {
   display: flex;
   height: 98vh;
-  align-items:center;
-  justify-content: center; 
+  align-items: center;
+  justify-content: center;
   font-size: 3rem;
 }
 
@@ -27,7 +27,7 @@
   /* height: 1000px; */
   border: 0;
   padding: 0;
-  margin: 0; 
+  margin: 0;
   background-position: center;
   background-size: cover;
   /* background-image: url('https://media.giphy.com/media/LVCdHNPTIY2be/giphy.gif'); */

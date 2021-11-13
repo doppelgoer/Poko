@@ -28,6 +28,21 @@ body {
   font-weight: bold;
   text-shadow: 3px -2px 2px #c475ee;
 }
+@media screen and (max-width: 768px) {
+  .mainFirst {
+    /* background-color: white; */
+  }
+  /* .mainSecond {
+    display: none;
+  }
+  .mainPageBox {
+    display: none; 
+    height: 30%;
+  } */
+  .fontBox {
+    font-size: 12vh;
+  }
+}
 .fontBoxPoko {
   display: flex;
   align-items: center;

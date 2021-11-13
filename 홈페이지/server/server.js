@@ -6,6 +6,10 @@ const cors = require('cors');
 const path = require('path');
 const nodemailer = require('nodemailer');
 
+//html content gzip으로 인코딩
+const compression = require('compression');
+app.use(compression());
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -13,13 +17,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api', api);
 let mysql = require('mysql');
 const router = require('./routes/index');
-const { getMaxListeners } = require('process');
 let connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '1234',
-  database: 'poko', // 데이터베이스 고르기
-  port: '3307',
+  password: '112213',
+  database: 'mine', // 데이터베이스 고르기
+  port: '3306',
 });
 
 connection.connect();
@@ -30,13 +33,13 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 app.use(express.static(path.join(__dirname, '../build')));
 app.get('/', function (req, res) {
+  console.log(123);
   res.send(express.static(path.join(__dirname, '../build/index.html')));
 });
 
 app.get('/text', async function (req, res) {
   let selectTestSql = `SELECT * FROM test`;
   let selectTestRes = await query(selectTestSql);
-  console.log(selectTestRes);
   res.send(selectTestRes[0]);
 });
 
@@ -85,29 +88,26 @@ app.post('/contactUs', async function (req, res) {
       user: 'jeongyeonkim8974@gmail.com',
       // Gmail 패스워드 입력
       // pass: process.env.NODEMAILER_PASS ,
-      pass: 'brsngauxqcbycttw'
+      pass: 'brsngauxqcbycttw',
     },
   });
 
-
-  let emailHtml =`
+  let emailHtml = `
   이메일 : ${user_email},
   이름 : ${user_name},
   휴대폰 : ${user_phoneNum},
   내용 : ${user_input_content}
-  `
-// 메일 전송하기
-    let info = await transporter.sendMail({
-      // 보내는 곳의 이름과, 메일 주소를 입력
-      from : user_email,
-      // 받는 곳의 메일 주소를 입력
-      to: 'jeongyeonkim8974@gmail.com',
-      subject: req.body.subject,
-      // 보내는 메일의 제목을 입력
-      // text: 일반 text로 작성된 내용
-      // html: html로 작성된 내용
-      text: `${emailHtml}`
-      
-      
-    });
+  `;
+  // 메일 전송하기
+  let info = await transporter.sendMail({
+    // 보내는 곳의 이름과, 메일 주소를 입력
+    from: user_email,
+    // 받는 곳의 메일 주소를 입력
+    to: 'jeongyeonkim8974@gmail.com',
+    subject: req.body.subject,
+    // 보내는 메일의 제목을 입력
+    // text: 일반 text로 작성된 내용
+    // html: html로 작성된 내용
+    text: `${emailHtml}`,
   });
+});
