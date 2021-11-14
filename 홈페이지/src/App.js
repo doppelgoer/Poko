@@ -7,7 +7,6 @@ import Team from "./components/teamPage/TeamPage";
 import LoginPage from "./components/LoginPage";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { IoMdLogIn } from "react-icons/io";
 
 function App() {
   return (
@@ -17,7 +16,7 @@ function App() {
           <Header />
           <Switch>
             <Route path="/" exact component={Main}></Route>
-            <Route path="/Board" component={Board}></Route>
+            {/* <Route path="/Board" component={Board}></Route> */}
             {/* <Route path="/products" component={Products}></Route> */}
             <Route path="/products" component={Pro}></Route>
             <Route path="/Contact" component={Team}></Route>

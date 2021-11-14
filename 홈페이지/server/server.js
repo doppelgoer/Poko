@@ -7,6 +7,11 @@ const path = require("path");
 const nodemailer = require("nodemailer");
 const axios = require("axios");
 const qs = require("qs");
+const config = require("../config.json").kakao;
+
+//html content gzip으로 인코딩
+const compression = require("compression");
+app.use(compression());
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -19,7 +24,7 @@ let connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "1234",
-  database: "poko", // 데이터베이스 고르기s
+  database: "poko", // 데이터베이스 고르기
   port: "3306",
 });
 
@@ -30,9 +35,8 @@ const port = process.env.PORT || 80;
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
 ///Kakao LOgin
-const REST_API_KEY = "ba0d65bf6ac39628accf57f92180fd3a";
 const REDIRECT_URI = "http://localhost/oauth";
-const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${config.REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
 app.get("/kakaoAxios", async function (req, res) {
   console.log(222222);
@@ -55,10 +59,10 @@ app.get("/oauth", async function (req, res) {
       },
       data: qs.stringify({
         grant_type: "authorization_code",
-        client_id: `${REST_API_KEY}`,
+        client_id: `${config.REST_API_KEY}`,
         redirectUri: `localhost/oauth`,
         code: authCode,
-        client_secret: "NcnYu7Jjq4XATZFmeRfZspG5NYYJbvYA",
+        client_secret: `${config.CLIENT_SECRET}`,
       }), //객체를 string 으로 변환
     });
   } catch (err) {
@@ -99,8 +103,7 @@ app.get("/", function (req, res) {
 
 app.get("/text", async function (req, res) {
   let selectTestSql = `SELECT * FROM test`;
-  let selectTestRes = await query1(selectTestSql);
-  console.log(selectTestRes);
+  let selectTestRes = await query(selectTestSql);
   res.send(selectTestRes[0]);
 });
 

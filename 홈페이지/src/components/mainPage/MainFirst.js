@@ -1,31 +1,36 @@
 import '../../css/main.css';
-// import { useEffect, useState } from 'react';
-export default function MainFirst() {
-  // const [position, setPosition] = useState(0);
-  // function onScroll() {
-  //   setPosition(window.scrollY);
-  // }
-  // useEffect(() => {
-  //   window.addEventListener('scroll', onScroll);
-  //   return () => {
-  //     window.removeEventListener('scroll', onScroll);
-  //   };
-  // }, []);
+import { useMediaQuery } from 'react-responsive';
+export default function MainFirst(props) {
+  const isMobile = useMediaQuery({
+    query: '(max-width:768px)',
+  });
+  let startATag = null;
+  if (!isMobile) {
+    startATag = (
+      <div className="fontStart">
+        <a
+          onClick={() => {
+            props.scrollFun(props.mainScrollRef);
+          }}
+        >
+          시작하기
+        </a>
+      </div>
+    );
+  }
   return (
     // <Parallax speed={30}>
     <div className="mainFirst">
       <div className="fontBox">
-        <div className="fontReact">
+        <div className={isMobile ? 'fontReactMobile' : 'fontReact'}>
           <div>REACT</div>
         </div>
-        <div className="fontWith">
+        <div className={isMobile ? 'fontWithMobile' : 'fontWith'}>
           <div>WITH</div>
         </div>
-        <div className="fontBoxPoko">
-          <div className="fontPoko">POKO</div>
-          <div className="fontStart">
-            <div>시작하기</div>
-          </div>
+        <div className={isMobile ? 'fontBoxPokoMobile' : 'fontBoxPoko'}>
+          <div className={isMobile ? 'fontPokoMobile' : 'fontPoko'}>POKO</div>
+          {startATag}
         </div>
         {/* <Parallax speed={10}>
           <div className="fontReact">REACT</div>

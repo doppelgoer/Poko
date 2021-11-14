@@ -5,13 +5,28 @@ import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 import { IconContext } from 'react-icons';
 // import { react } from '@babel/types';
+import { useMediaQuery } from 'react-responsive';
 
 function Navbar() {
+  const isMobile = useMediaQuery({
+    query: '(max-width:768px)',
+  });
   const [sidebar, setSidebar] = useState(false);
   // console.log(111);
   function showSidebar() {
     setSidebar(!sidebar);
   }
+  // useKeyPress()
+  // const test123 = useKeyPress('h');
+  // function pressKeyShowSidebar(e) {
+  //   console.log(666);
+  //   console.log(e.keyCode);
+  //   if (e.keyCode === 27) {
+  //     if (!sidebar) {
+  //       setSidebar(!sidebar);
+  //     }
+  //   }
+  // }
   const [hoverHomeTF, setHoverHomeTF] = useState(1);
   const [hoverBoardTF, setHoverBoardTF] = useState(1);
   const [hoverProductsTF, setHoverProductsTF] = useState(1);
@@ -59,25 +74,25 @@ function Navbar() {
       hoverTF: hoverHomeTF,
       backTxtStyle: navTextHomePart,
     },
-    {
-      title: 'Board',
-      path: '/Board',
-      icon: (
-        <IoIcons.IoMdPeople
-          color={
-            hoverBoardTF === 1
-              ? 'white'
-              : hoverBoardTF === 2
-              ? 'rgb(21 19 21)'
-              : 'rgb(21 19 21)'
-          }
-        />
-      ),
-      cName: 'nav-text',
-      lowerTxt: 'board',
-      hoverTF: hoverBoardTF,
-      backTxtStyle: navTextBoardPart,
-    },
+    // {
+    //   title: 'Board',
+    //   path: '/Board',
+    //   icon: (
+    //     <IoIcons.IoMdPeople
+    //       color={
+    //         hoverBoardTF === 1
+    //           ? 'white'
+    //           : hoverBoardTF === 2
+    //           ? 'rgb(21 19 21)'
+    //           : 'rgb(21 19 21)'
+    //       }
+    //     />
+    //   ),
+    //   cName: 'nav-text',
+    //   lowerTxt: 'board',
+    //   hoverTF: hoverBoardTF,
+    //   backTxtStyle: navTextBoardPart,
+    // },
     {
       title: 'Products',
       path: '/products',
@@ -125,8 +140,8 @@ function Navbar() {
       alignItems: 'center',
       justifyContent: 'center',
       position: 'absolute',
-      overflowX: 'hidden',
-      overflowY: 'hidden',
+      overflowX: 'auto',
+      overflowY: 'auto',
     });
     // setNavTextBackPart({
     //   display: 'flex',
@@ -193,76 +208,143 @@ function Navbar() {
     }
   }
 
-  return (
-    <>
-      <IconContext.Provider value={{ color: '#fff' }}>
-        <div className="navbar">
-          <Link to="#" className="menu-bars">
-            <FaIcons.FaBars onClick={showSidebar} />
-          </Link>
-        </div>
-        <div className="nav-text-back" style={navTextBack}>
-          {sidebarData.map((item, index) => {
-            return (
-              <div
-                key={index}
-                className={item.cName + '-back-' + item.lowerTxt.toLowerCase()}
-                style={item.backTxtStyle}
-              >
-                {item.title}
-              </div>
-            );
-          })}
-        </div>
-        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-          <ul className="nav-menu-close-btn" onClick={showSidebar}>
-            <li className="navbar-toggle">
-              <Link to="#" className="menu-bars">
-                <AiIcons.AiOutlineClose />
-              </Link>
-            </li>
-          </ul>
-          <ul className="nav-menu-items">
+  if (!isMobile) {
+    return (
+      <>
+        <IconContext.Provider value={{ color: '#fff' }}>
+          <div className="navbar">
+            <Link
+              to="#"
+              className={!sidebar ? 'menu-bars' : 'menu-bars-active'}
+            >
+              <FaIcons.FaBars
+                onClick={showSidebar}
+                // onKeyPress={pressKeyShowSidebar}
+              />
+            </Link>
+          </div>
+          <div className="nav-text-back" style={navTextBack}>
             {sidebarData.map((item, index) => {
               return (
-                <React.Fragment key={index}>
-                  <li className={item.cName}>
-                    <Link
-                      to={item.path}
-                      onClick={showSidebar}
-                      onMouseOver={e => {
-                        hoverFalseFun(item.lowerTxt);
-                      }}
-                      onMouseLeave={e => {
-                        hoverTrueFun(item.lowerTxt);
-                      }}
-                      style={
-                        item.hoverTF === 1
-                          ? {
-                              backgroundColor: 'rgb(21 19 21)',
-                              color: '#f5f5f5',
-                            }
-                          : item.hoverTF === 2
-                          ? { backgroundColor: 'white', color: 'rgb(21 19 21)' }
-                          : {
-                              backgroundColor: 'rgb(21 19 21)',
-                              color: 'rgb(21 19 21)',
-                            }
-                      }
-                    >
-                      {item.icon}
-                      <span>{item.title}</span>
-                    </Link>
-                  </li>
-                  <div style={{ height: '3em' }}></div>
-                </React.Fragment>
+                <div
+                  key={index}
+                  className={
+                    item.cName + '-back-' + item.lowerTxt.toLowerCase()
+                  }
+                  style={item.backTxtStyle}
+                >
+                  {item.title}
+                </div>
               );
             })}
-          </ul>
-        </nav>
-      </IconContext.Provider>
-    </>
-  );
+          </div>
+          <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+            <div className="nav-menu-close-btn" onClick={showSidebar}>
+              <div className="navbar-toggle">
+                <Link to="#" className="menu-bars">
+                  <AiIcons.AiOutlineClose />
+                </Link>
+              </div>
+            </div>
+            <ul className="nav-menu-items">
+              {sidebarData.map((item, index) => {
+                return (
+                  <React.Fragment key={index}>
+                    <li className={item.cName}>
+                      <Link
+                        to={item.path}
+                        onClick={showSidebar}
+                        onMouseOver={e => {
+                          hoverFalseFun(item.lowerTxt);
+                        }}
+                        onMouseLeave={e => {
+                          hoverTrueFun(item.lowerTxt);
+                        }}
+                        style={
+                          item.hoverTF === 1
+                            ? {
+                                backgroundColor: 'rgb(21 19 21)',
+                                color: '#f5f5f5',
+                              }
+                            : item.hoverTF === 2
+                            ? {
+                                backgroundColor: 'white',
+                                color: 'rgb(21 19 21)',
+                              }
+                            : {
+                                backgroundColor: 'rgb(21 19 21)',
+                                color: 'rgb(21 19 21)',
+                              }
+                        }
+                      >
+                        {item.icon}
+                        <span>{item.title}</span>
+                      </Link>
+                    </li>
+                    <div style={{ height: '3em' }}></div>
+                  </React.Fragment>
+                );
+              })}
+            </ul>
+          </nav>
+        </IconContext.Provider>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <IconContext.Provider value={{ color: '#fff' }}>
+          <div className="navbar">
+            <Link
+              to="#"
+              className={!sidebar ? 'menu-bars' : 'menu-bars-active'}
+            >
+              <FaIcons.FaBars
+                onClick={showSidebar}
+                // onKeyPress={pressKeyShowSidebar}
+              />
+            </Link>
+          </div>
+          <div className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+            <div className="nav-menu-close-btn" onClick={showSidebar}>
+              <div className="navbar-toggle">
+                <Link to="#" className="menu-bars">
+                  <AiIcons.AiOutlineClose />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </IconContext.Provider>
+      </>
+    );
+  }
 }
+// function useKeyPress(targetKey) {
+//   // State for keeping track of whether key is pressed
+//   const [keyPressed, setKeyPressed] = useState(false);
+//   // If pressed key is our target key then set to true
+//   function downHandler({ key }) {
+//     if (key === targetKey) {
+//       setKeyPressed(true);
+//     }
+//   }
+//   // If released key is our target key then set to false
+//   const upHandler = ({ key }) => {
+//     if (key === targetKey) {
+//       setKeyPressed(false);
+//     }
+//   };
+//   // Add event listeners
+//   useEffect(() => {
+//     window.addEventListener('keydown', downHandler);
+//     window.addEventListener('keyup', upHandler);
+//     // Remove event listeners on cleanup
+//     return () => {
+//       window.removeEventListener('keydown', downHandler);
+//       window.removeEventListener('keyup', upHandler);
+//     };
+//   }, []); // Empty array ensures that effect is only run on mount and unmount
+//   return keyPressed;
+// }
 
 export default Navbar;
