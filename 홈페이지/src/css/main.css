@@ -14,7 +14,7 @@ body {
 }
 
 .mainFirst {
-  background-color: rgb(27 27 28);
+  background-color: rgb(8 8 8);
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -30,6 +30,7 @@ body {
 }
 @media screen and (max-width: 768px) {
   .mainFirst {
+    /* background-color: white; */
     /* background-color: white; */
   }
   /* .mainSecond {
@@ -258,7 +259,7 @@ body {
 }
 
 .mainSecond {
-  background-color: rgb(27 27 28);
+  background-color: rgb(8 8 8);
   width: 99vw;
   height: 100vh;
   display: flex;
@@ -441,7 +442,7 @@ body {
 .mainSecProducts {
   width: 66vw;
   height: 66vh;
-  background-color: rgb(27 27 28);
+  background-color: rgb(8 8 8);
   display: flex;
   align-items: center;
   justify-content: center;

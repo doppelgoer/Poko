@@ -1,12 +1,12 @@
-import React from "react";
-import "../../css/Product.css";
+import React from 'react';
+import '../../css/Product.css';
 
 function Pcard(props) {
-  let productData = props.productList.map((product) => {
+  let productData = props.productList.map(product => {
     return (
       <div
         className="Pbox"
-        style={{ border: "0.1px solid black" }}
+        style={{ border: '0.1px solid black' }}
         key={product.idx}
       >
         <div className="title">
@@ -37,13 +37,16 @@ function Pcard(props) {
   });
 
   return (
-    <div>
-      <br />
-      <center>
-        <h1>OUR PRODUCT</h1>
-      </center>
-      <br />
-      <div className="cardArea">{productData}</div>
+    // <div>
+    //   <br />
+    //   <center>
+    //     <h1>OUR PRODUCT</h1>
+    //   </center>
+    //   <br />
+    //   <div className="cardArea">{productData}</div>
+    // </div>
+    <div className="productContainer">
+      <div className="productLanguage">react</div>
     </div>
   );
 }

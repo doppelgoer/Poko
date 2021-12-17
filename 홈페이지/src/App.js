@@ -5,8 +5,7 @@ import Header from './components/header/Header';
 import Pro from './components/productsPage/Product';
 import Team from './components/teamPage/TeamPage';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import reactDom from 'react-dom';
+
 function App() {
   return (
     <div className="background">

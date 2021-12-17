@@ -312,6 +312,32 @@ function Navbar() {
                   <AiIcons.AiOutlineClose />
                 </Link>
               </div>
+              <ul
+                className={
+                  !sidebar ? 'nav-menu-items' : 'nav-menu-items-active'
+                }
+              >
+                {sidebarData.map((item, index) => {
+                  return (
+                    <React.Fragment key={index}>
+                      <li className={item.cName}>
+                        <Link
+                          to={item.path}
+                          onClick={showSidebar}
+                          style={{
+                            backgroundColor: 'rgb(21 19 21)',
+                            color: '#f5f5f5',
+                          }}
+                        >
+                          {item.icon}
+                          <span>{item.title}</span>
+                        </Link>
+                      </li>
+                      <div style={{ height: '3em' }}></div>
+                    </React.Fragment>
+                  );
+                })}
+              </ul>
             </div>
           </div>
         </IconContext.Provider>

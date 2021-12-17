@@ -1,7 +1,7 @@
 import axios from 'axios';
 const headAddress = `http://localhost`;
 
-export default function axiosFun(_method, _url, _data) {
+export default async function axiosFunc(_method, _url, _data) {
   return new Promise(async (resolve, reject) => {
     // console.log(_method, _url, _data);
 
@@ -18,7 +18,7 @@ export default function axiosFun(_method, _url, _data) {
         // console.log(dataFromServer);
         resolve(dataFromServer.data);
       } catch (e) {
-        console.log(e);
+        reject(console.log('에러'));
       } //end try catch
     } //end if
     else if (
@@ -29,24 +29,20 @@ export default function axiosFun(_method, _url, _data) {
       _method === 'put' ||
       _method === 'delete'
     ) {
-      console.log('도려나??');
-      console.log(_data);
       try {
-        dataFromServer = await axios({
+        dataFromServer = axios({
           //token
           method: _method,
           url: `${headAddress}/${_url}`,
           data: _data,
         });
-        return resolve(dataFromServer.data);
+        resolve(dataFromServer.data);
       } catch (e) {
         console.log(e);
       } //end try catch
     } //end else if
     else {
-      return reject(console.log('에러'));
+      reject(console.log('에러'));
     } //end else
-    // console.log(555,dataFromServer);
-    //             return dataFromServer
   });
 }
