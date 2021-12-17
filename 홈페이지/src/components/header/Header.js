@@ -1,7 +1,7 @@
 import Navbar from "./Nav";
 import "../../css/Header.css";
 import logoImg from "../../img/logo.png";
-import { KAKAO_AUTH_URL } from "../../config";
+// import { KAKAO_AUTH_URL } from "../../config";
 import kakaologo from "../../img/kakaologo.jpg";
 import axios from "axios";
 
@@ -34,7 +34,7 @@ function Header(props) {
           {/* <button id="kakaoAxios" onClick={kakaoLoginAioxs}>
             KAKAO LOGIN
           </button> */}
-          <a href="http://localhost/kakaoAxios">KAKAO LOGIN</a>
+          {/* <a href="http://localhost/kakaoAxios">KAKAO LOGIN</a> */}
         </div>
       </div>
     </div>
