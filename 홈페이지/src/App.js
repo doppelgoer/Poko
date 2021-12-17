@@ -4,6 +4,8 @@ import Board from './components/boardPage/BoardPage';
 import Header from './components/header/Header';
 import Pro from './components/productsPage/Product';
 import Team from './components/teamPage/TeamPage';
+import LoginPage from './components/LoginPage';
+
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
@@ -18,7 +20,7 @@ function App() {
             {/* <Route path="/products" component={Products}></Route> */}
             <Route path="/products" component={Pro}></Route>
             <Route path="/Contact" component={Team}></Route>
-            {/* <Route path="/oauth" component={Login}></Route> */}
+            <Route path="/oauth" component={LoginPage}></Route>
           </Switch>
         </Router>
       </div>

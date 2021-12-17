@@ -5,6 +5,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const nodemailer = require('nodemailer');
+const axios = require('axios');
+const qs = require('qs');
+const config = require('../config.json').kakao;
 
 //html content gzip으로 인코딩
 const compression = require('compression');
@@ -36,9 +39,8 @@ const port = process.env.PORT || 80;
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
 ///Kakao LOgin
-const REST_API_KEY = 'ba0d65bf6ac39628accf57f92180fd3a';
 const REDIRECT_URI = 'http://localhost/oauth';
-const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${config.REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
 app.get('/kakaoAxios', async function (req, res) {
   console.log(222222);
@@ -46,8 +48,54 @@ app.get('/kakaoAxios', async function (req, res) {
   res.redirect(KAKAO_AUTH_URL);
 });
 
-app.get('/oauth', function (req, res) {
+app.get('/oauth', async function (req, res) {
   console.log(req.query.code);
+  let authCode = req.query.code;
+  let kakaoToken;
+  try {
+    //access토큰을 받기 위한 코드
+    kakaoToken = await axios({
+      //token
+      method: 'POST',
+      url: 'https://kauth.kakao.com/oauth/token',
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+      },
+      data: qs.stringify({
+        grant_type: 'authorization_code',
+        client_id: `${config.REST_API_KEY}`,
+        redirectUri: `localhost/oauth`,
+        code: authCode,
+        client_secret: `${config.CLIENT_SECRET}`,
+      }), //객체를 string 으로 변환
+    });
+  } catch (err) {
+    console.log('auth/kakao/callvack 액세스 토큰 받기 에러 ', err);
+  }
+  console.log(kakaoToken);
+  // return;
+  // console.log(kakaoToken);
+  //access토큰을 받아서 사용자 정보를 알기 위해 쓰는 코드
+  let kakaoUser;
+  // console.log(kakaoToken.data);
+  try {
+    // console.log(token);//access정보를 가지고 또 요청해야 정보를 가져올 수 있음.
+    kakaoUser = await axios({
+      method: 'GET',
+      url: 'https://kapi.kakao.com/v2/user/me',
+      headers: {
+        Authorization: `Bearer ${kakaoToken.data.access_token}`,
+      }, //헤더에 내용을 보고 보내주겠다.
+    });
+  } catch (e) {
+    console.log(
+      'auth/kakao/callvack 액세스 토큰으로 유저정보 받기 에러',
+      e.data
+    );
+  }
+
+  console.log(kakaoUser);
+
   // 다시 axios 날리기
   //카카오 로그인 숙제
 });
