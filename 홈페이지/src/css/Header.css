@@ -6,7 +6,7 @@
 }
 
 .logoArea {
-  width: 150px;
+  width: 8%;
   margin-left: auto;
   margin-right: auto;
   /* float:left */
@@ -126,8 +126,8 @@ span {
     z-index: 2;
     height: 50%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-end;
   }
   .nav-menu {
     /* background-color: #111; */
@@ -136,11 +136,10 @@ span {
     width: 100vw;
     height: 50vh;
     display: flex;
-    justify-content: center;
-    /* align-items: center; */
+    align-items: flex-start;
+    justify-content: flex-end;
     position: fixed;
-    top: 0;
-    left: -100%;
+    left: 0%;
     top: -100%;
     transition: 850ms;
   }
@@ -153,7 +152,7 @@ span {
     margin-right: 5%;
   }
   .nav-menu-close-btn {
-    margin-right: 10%;
+    margin-right: 4%;
     position: relative;
     /* margin-left: 155%;
     margin-right: 1%;
@@ -162,5 +161,12 @@ span {
     /* display: flex;
     align-items: flex-end;
     justify-content: left; */
+  }
+
+  .nav-menu-items {
+    display: none;
+  }
+  .nav-menu-items-active {
+    z-index: 3;
   }
 }

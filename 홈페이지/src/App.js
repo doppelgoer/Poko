@@ -1,12 +1,12 @@
-import "./css/App.css";
-import Main from "./components/mainPage/Main";
-import Board from "./components/boardPage/BoardPage";
-import Header from "./components/header/Header";
-import Pro from "./components/productsPage/Product";
-import Team from "./components/teamPage/TeamPage";
-import LoginPage from "./components/LoginPage";
+import './css/App.css';
+import Main from './components/mainPage/Main';
+import Board from './components/boardPage/BoardPage';
+import Header from './components/header/Header';
+import Pro from './components/productsPage/Product';
+import Team from './components/teamPage/TeamPage';
+import LoginPage from './components/LoginPage';
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
