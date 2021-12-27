@@ -1,9 +1,10 @@
-import memberImg from "../../img/member.png";
-import "../../css/body.css";
+import TeamCard from "./TeamCard";
+// import "../../css/body.css";
+import "../../css/contactUs.css";
+import Title from "../publicCp/Title";
 import axios from "axios";
 import { useState, useEffect } from "react";
 const headAddress = `http://localhost`;
-
 function Team() {
   const [textbox, setTextBox] = useState([]);
   const [userName, setUserName] = useState("");
@@ -36,86 +37,18 @@ function Team() {
   //     insertInfo();
   // }, []);
 
-  const onClick = (event) => {
-    event.preventDefault();
-    setTextBox({
-      name: userName,
-      email: userEmail,
-      phoneNum: userPhoneNum,
-      content: inputContent,
-    });
-    postUserInfo();
-  };
-  console.log("text", textbox);
-
-  const setUserNameFun = (e) => {
-    setUserName(e.target.value);
-  };
-
-  const setUserEmailFun = (e) => {
-    setUserEmail(e.target.value);
-  };
-
-  const setUserPhoneNumFun = (e) => {
-    setUserPhoneNum(e.target.value);
-  };
-
-  const setInputContentFun = (e) => {
-    setInputContent(e.target.value);
-  };
-
   return (
-    <div className="teamBox">
-      <div className="memberTitle">
-        <h1>Team</h1>
-      </div>
-      <div className="memberImgArea">
-        <img src={memberImg} />
+    <div className="teamPage">
+      <div className="teamPageContainer">
+        <Title title="OUR MEMBER"></Title>
+        <div className=""></div>
       </div>
 
-      <div className="contactBox">
-        <div className="infoBox">
-          <div className="userName">
-            <input
-              type="text"
-              placeholder="name"
-              value={userName}
-              onChange={setUserNameFun}
-            ></input>
-          </div>
-
-          <div className="userEmail">
-            <input
-              type="text"
-              placeholder="email"
-              value={userEmail}
-              onChange={setUserEmailFun}
-            ></input>
-          </div>
-          <div>
-            <input
-              type="text"
-              placeholder="telephone"
-              value={userPhoneNum}
-              onChange={setUserPhoneNumFun}
-            ></input>
-          </div>
-        </div>
-
-        <div className="emailBox">
-          <textarea
-            name="opinion"
-            cols="30"
-            rows="5"
-            placeholder="내용"
-            value={inputContent}
-            onChange={setInputContentFun}
-          ></textarea>
-        </div>
-      </div>
-      <div>
-        <button onClick={onClick}>Submit</button>
-      </div>
+      {/* <div
+        style={{ backgroundColor: "white", width: "100vw", height: "100vh" }}
+      >
+        Our Team
+      </div> */}
     </div>
   );
 }

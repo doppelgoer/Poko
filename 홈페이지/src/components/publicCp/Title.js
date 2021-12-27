@@ -1,11 +1,12 @@
-export default function Title() {
+export default function Title(props) {
   return (
     <div className="txtContainer">
-      <div className="titleTxt">Our Project</div>
+      <div className="titleTxt">{props.title}</div>
       <div className="titleImg">
         <img src="https://demo.themexbd.com/rtl/shamim/wp-content/uploads/2021/08/bar.png"></img>
       </div>
-      <div className="filterContainer">
+      {props.children}
+      {/* <div className="filterContainer">
         <ul className="productFilter">
           <li>ALL</li>
           <li>JAVASCRIPT</li>
@@ -13,7 +14,7 @@ export default function Title() {
           <li>SVELT</li>
           <li>FLUTTER</li>
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 }
