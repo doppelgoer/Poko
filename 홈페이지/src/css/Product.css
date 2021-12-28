@@ -122,31 +122,63 @@
 }
 
 .productCardContainer {
-  /* background-color: rgb(8 8 8); */
-  position: relative;
-  max-width: 80%;
+  background-color: rgb(8 8 8);
+  /* position: relative;
+  width: 80%;
+  max-width: 90%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: minmax(300px, auto-fill);
   grid-auto-flow: dense;
-  grid-gap: 10px;
+  grid-column-gap: 1%;
+  grid-row-gap: 10px; */
+  height: 100%;
+  width: 80%;
+  margin: 20px auto;
+  columns: 4;
+  column-gap: 40px;
 }
 
 .productCardStyle1 {
+  word-break: break-all;
+  color: white;
   background-color: #1b1b1b;
-  display: grid;
+  width: 100%;
+  margin: 0 0 20px;
+  padding: 10px;
+  overflow: hidden;
+  break-inside: avoid;
+  /* box- */
+  /*display: grid;
   place-items: center;
   text-align: center;
-  color: #fff;
-  padding: 5%;
+  color: #fff; */
+  /* padding: 5%; */
 
-  transition: 0.5s;
-  word-wrap: break-word;
+  /* transition: 0.5s;
+  word-wrap: initial; */
 }
 .productCardStyle1:hover {
   background: #e91e63;
 }
-
+@media (max-width: 1200px) {
+  .productCardContainer {
+    columns: 3;
+    width: calc(100% - 40px);
+    box-sizing: border-box;
+    padding: 20px 20px 20px 0;
+  }
+}
+@media (max-width: 768px) {
+  .productCardContainer {
+    columns: 2;
+  }
+}
+@media (max-width: 480px) {
+  .productCardContainer {
+    columns: 1;
+  }
+}
 /* .productCardStyle2 {
   background-color: #1b1b1b;
   color: rgb(230, 230, 230);
