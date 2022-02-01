@@ -126,8 +126,8 @@ export default function NumCt(props) {
         }}
       >
         {numBox}
-        <button onClick={goToMain}>메인으로 돌아가기</button>
       </div>
+      <button onClick={goToMain}>메인으로 돌아가기</button>
     </div>
   );
 }
